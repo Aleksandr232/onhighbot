@@ -50,7 +50,8 @@ bot.action('btn_2', (ctx)=>{
 
 bot.action('btn_4', (ctx)=>{
     try{
-        ctx.replyWithContact(89991625236, 'Андрей')
+        ctx.replyWithContact(89063207897, 'Андрей')
+        ctx.replyWithContact(89061128191, 'Артур')
     }catch(e){
         console.error(e)
     }
