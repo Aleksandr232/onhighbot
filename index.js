@@ -28,6 +28,7 @@ bot.command('menu', async (ctx)=>{
 
 bot.action('btn_1', async(ctx)=>{
     try{
+        ctx.answerCbQuery()
         ctx.replyWithPhoto('https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Meierbau_cleaning.JPG/1200px-Meierbau_cleaning.JPG'),
         ctx.replyWithPhoto('https://www.aek-stroy.ru/wp-content/uploads/2019/03/photo32-1.jpeg'),
         ctx.replyWithPhoto('https://www.трубочист-л.рф/upload/information_system_6/1/9/9/item_199/item_199.jpg'),
@@ -40,6 +41,7 @@ bot.action('btn_1', async(ctx)=>{
 
 bot.action('btn_2', (ctx)=>{
     try{
+        ctx.answerCbQuery()
         ctx.replyWithVideo({source:'video.mp4'}),
         ctx.replyWithVideo({source:'video1.mp4'})
     }catch(e){
@@ -48,8 +50,10 @@ bot.action('btn_2', (ctx)=>{
 })
 
 
+
 bot.action('btn_4', (ctx)=>{
     try{
+        ctx.answerCbQuery()
         ctx.replyWithContact(89063207897, 'Андрей')
         ctx.replyWithContact(89061128191, 'Артур')
     }catch(e){
