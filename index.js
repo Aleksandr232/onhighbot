@@ -17,7 +17,7 @@ bot.command('menu', async (ctx)=>{
     await ctx.replyWithHTML('<b>Меню</b>', Markup.inlineKeyboard(
         [
             [Markup.button.callback('Фото', 'btn_1'), Markup.button.callback('Видео', 'btn_2'), Markup.button.callback('Услуги', 'btn_3')],
-            [Markup.button.callback('Фото', 'btn_4')]
+            [Markup.button.callback('Контакты', 'btn_4')]
         ]
         
     ))
@@ -46,6 +46,16 @@ bot.action('btn_2', (ctx)=>{
         console.error(e)
     }
 })
+
+
+bot.action('btn_4', (ctx)=>{
+    try{
+        ctx.replyWithContact(89991625236, 'Андрей')
+    }catch(e){
+        console.error(e)
+    }
+})
+
 
 bot.launch();
 
