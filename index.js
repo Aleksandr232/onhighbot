@@ -12,13 +12,39 @@ bot.command('site', (ctx)=>{
 })
 
 
-bot.command('menu', (ctx)=>{
-    ctx.replyWithHTML('<b>Меню</b>', Markup.inlineKeyboard(
+bot.command('menu', async (ctx)=>{
+   try{
+    await ctx.replyWithHTML('<b>Меню</b>', Markup.inlineKeyboard(
         [
-            [Markup.button.callback('Фото', 'btn_1')]
+            [Markup.button.callback('Фото', 'btn_1'), Markup.button.callback('Видео', 'btn_2'), Markup.button.callback('Услуги', 'btn_3')],
+            [Markup.button.callback('Фото', 'btn_4')]
         ]
         
     ))
+   }catch(e){
+        console.error(e)
+   }
+})
+
+bot.action('btn_1', async(ctx)=>{
+    try{
+        ctx.replyWithPhoto('https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Meierbau_cleaning.JPG/1200px-Meierbau_cleaning.JPG'),
+        ctx.replyWithPhoto('https://www.aek-stroy.ru/wp-content/uploads/2019/03/photo32-1.jpeg'),
+        ctx.replyWithPhoto('https://www.трубочист-л.рф/upload/information_system_6/1/9/9/item_199/item_199.jpg'),
+        ctx.replyWithPhoto('https://alpinistspb.ru/wp-content/uploads/2020/05/o-professii-promyshlennyj-alpinist-2.jpg'),
+        ctx.replyWithPhoto('https://alpinizm-77.ru/wp-content/uploads/promyshlenniy_alpinizm.jpg')
+    }catch(e){
+        console.error(e)
+    }
+})
+
+bot.action('btn_2', (ctx)=>{
+    try{
+        ctx.replyWithVideo({source:'video.mp4'}),
+        ctx.replyWithVideo({source:'video1.mp4'})
+    }catch(e){
+        console.error(e)
+    }
 })
 
 bot.launch();
