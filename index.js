@@ -1,4 +1,4 @@
-const { Telegraf, Markup } = require("telegraf");
+const { Telegraf, Markup, Composer } = require("telegraf");
 require("dotenv").config();
 const commBot = require("./const");
 
@@ -16,6 +16,7 @@ bot.command("site", (ctx) => {
   ctx.replyWithHTML('<a href="http://on-high.ru/">Наш сайт</a>');
 });
 
+
 bot.command("menu", async (ctx) => {
   try {
     await ctx.replyWithHTML(
@@ -26,7 +27,7 @@ bot.command("menu", async (ctx) => {
           Markup.button.callback("Видео", "btn_2"),
           Markup.button.callback("Услуги", "btn_3"),
         ],
-        [Markup.button.callback("Контакты", "btn_4")],
+        
       ])
     );
   } catch (e) {
@@ -65,7 +66,11 @@ bot.action("btn_2", (ctx) => {
   }
 });
 
+
+
+
 bot.action("btn_3", async (ctx) => {
+    try{
     await ctx.replyWithHTML('<a>Фасадные работы - это сложный комплекс  мероприятий направленный восстановления, утепление, предание красивого внешнего вида, защитное свойство от внешних - вредных воздействий окружающий среды на фасаде вашего дома.</a>',
     ctx.replyWithPhoto('http://on-high.ru/wp-content/themes/shabloner_901/files/ct_block_item_85605_898843_5_image_PJnTHAkO.jpg')),
     await ctx.replyWithHTML('<a>Монтаж кондиционеров - установка кондиционера альпинистом выполняется в определенном порядке: монтируют наружные и внутренние блоки, прокладывают трубопроводы для хладагента, подводят электрокоммуникации и собирают автоматические предохранители выключателей.</a>',
@@ -73,8 +78,13 @@ bot.action("btn_3", async (ctx) => {
     await ctx.replyWithHTML('<a>Клининговые работы - профессиональная мойка стеклянных поверхностей и керамогранитных фасадов (вентфасадов) высоток методом промышленного альпинизма выполняется с использованием специального инструментария и мыльного раствора.</a>',
     ctx.replyWithPhoto('https://gor-m.ru/sites/default/files/moika-okon-na-vysote.jpg')),
     await ctx.replyWithHTML('<a>Высотный монтаж - привлечение альпиниста для выполнения высотных монтажных работ, является более выгодным и целесообразным решением, чем монтаж строительных лесов или привлечение тяжелой строительной техники на объект. А зачастую бывает просто не возможно обойтись без привлечения промышленного альпинизма.</a>',
-    ctx.replyWithPhoto('https://prom-alp.biz/wp-content/uploads/230120209_227669-1-600x450.jpg'))  
+    ctx.replyWithPhoto('https://prom-alp.biz/wp-content/uploads/230120209_227669-1-600x450.jpg')) 
+    }catch(e){
+        console.error(e)
+    }
 });
+
+
 
 
 
