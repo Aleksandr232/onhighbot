@@ -36,7 +36,6 @@ bot.command("menu", async (ctx) => {
 
 bot.action("btn_1", async (ctx) => {
   try {
-    ctx.answerCbQuery();
     ctx.replyWithPhoto(
       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Meierbau_cleaning.JPG/1200px-Meierbau_cleaning.JPG"
     ),
@@ -59,7 +58,6 @@ bot.action("btn_1", async (ctx) => {
 
 bot.action("btn_2", (ctx) => {
   try {
-    ctx.answerCbQuery();
     ctx.replyWithVideo({ source: "video.mp4" }),
       ctx.replyWithVideo({ source: "video1.mp4" });
   } catch (e) {
@@ -79,15 +77,6 @@ bot.action("btn_3", async (ctx) => {
 });
 
 
-
-bot.action("btn_4", (ctx) => {
-  try {
-    ctx.replyWithContact(89063207897, "Андрей");
-    ctx.replyWithContact(89061128191, "Артур");
-  } catch (e) {
-    console.error(e);
-  }
-});
 
 bot.launch();
 
