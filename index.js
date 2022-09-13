@@ -26,6 +26,7 @@ bot.command("menu", async (ctx) => {
           Markup.button.callback("Фото", "btn_1"),
           Markup.button.callback("Видео", "btn_2"),
           Markup.button.callback("Услуги", "btn_3"),
+          Markup.button.callback("Контакты", "btn_4"),
         ],
         
       ])
@@ -85,7 +86,14 @@ bot.action("btn_3", async (ctx) => {
 });
 
 
-
+bot.action("btn_4", async (ctx) => {
+  try {
+   await ctx.replyWithContact('+79063207897', 'Андрей')
+   await ctx.replyWithContact('+79061128191', 'Артур')
+  } catch (e) {
+    console.error(e);
+  }
+});
 
 
 bot.launch();
