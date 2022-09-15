@@ -28,6 +28,9 @@ bot.command("menu", async (ctx) => {
           Markup.button.callback("Услуги", "btn_3"),
           Markup.button.callback("Контакты", "btn_4"),
         ],
+        [
+          Markup.button.callback("Цены", "btn_5"),
+        ]
         
       ])
     );
@@ -94,6 +97,17 @@ bot.action("btn_4", async (ctx) => {
     console.error(e);
   }
 });
+
+bot.action('btn_5', async (ctx)=>{
+  try{
+    await ctx.replyWithHTML('<b>Гидроструйная очистка фасада м² - 105 &#8381;</b>')
+    await ctx.replyWithHTML('<b>Очистка фасада м² - 165 &#8381;</b>')
+    await ctx.replyWithHTML('<b>Огрунтовка фасада "Валиком" м² - 60 &#8381;</b>')
+    await ctx.replyWithHTML('<b>Окраска фасада м² - 100 &#8381;</b>')
+  }catch(e){
+    console.error(e)
+  }
+})
 
 
 bot.launch();
