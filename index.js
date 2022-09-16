@@ -107,7 +107,14 @@ bot.action('btn_5', async (ctx)=>{
     await ctx.replyWithHTML('<b>Очистка кровли от снега м² - от 60 &#8381;</b>')
     await ctx.replyWithHTML('<b>Установка внешнего блока кондиционера - 7000 &#8381;</b>')
     await ctx.replyWithHTML('<b>Мойка окон м² - от 50  &#8381;</b>')
-    await ctx.replyWithHTML('<b>Мойка фасада м² - от 40  &#8381;</b>')
+    await ctx.replyWithHTML('<b>Ремонт межпанельных швов м² - от 800  &#8381;</b>')
+    await ctx.replyWithHTML('<b>Установка снегозадержателей пог.м - от 1000  &#8381;</b>')
+    await ctx.replyWithHTML('<b>Выезд альпиниста 6000  &#8381;</b>')
+    await ctx.replyWithHTML('<b>Монтаж банеров м² - от 1200 &#8381;</b>')
+    await ctx.replyWithHTML('<b>Монтаж строительных лесов(туры) м²  - от 90 &#8381;</b>')
+    await ctx.replyWithHTML('<b>Герметизация кровли (ремонт кровли)   - от 500 &#8381;</b>')
+    await ctx.replyWithHTML('<b>Монтаж водосточный системы   - от 1800  &#8381; м</b>')
+    await ctx.replyWithHTML('<b>Другие виды работ - по договоренности </b>')
   }catch(e){
     console.error(e)
   }
