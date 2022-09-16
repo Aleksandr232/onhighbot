@@ -104,6 +104,10 @@ bot.action('btn_5', async (ctx)=>{
     await ctx.replyWithHTML('<b>Очистка фасада м² - 165 &#8381;</b>')
     await ctx.replyWithHTML('<b>Огрунтовка фасада "Валиком" м² - 60 &#8381;</b>')
     await ctx.replyWithHTML('<b>Окраска фасада м² - 100 &#8381;</b>')
+    await ctx.replyWithHTML('<b>Очистка кровли от снега м² - от 60 &#8381;</b>')
+    await ctx.replyWithHTML('<b>Установка внешнего блока кондиционера - 7000 &#8381;</b>')
+    await ctx.replyWithHTML('<b>Мойка окон м² - от 50  &#8381;</b>')
+    await ctx.replyWithHTML('<b>Мойка фасада м² - от 40  &#8381;</b>')
   }catch(e){
     console.error(e)
   }
