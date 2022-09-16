@@ -11,11 +11,63 @@ bot.start((ctx) =>
   )
 );
 bot.hears("Привет", (ctx) => ctx.reply("Привет, помогу с высотными работами"));
+bot.hears("Цены", async (ctx) =>{  
+try{
+  await ctx.replyWithHTML('<b>Гидроструйная очистка фасада м² - 105 &#8381;</b>')
+  await ctx.replyWithHTML('<b>Очистка фасада м² - 165 &#8381;</b>')
+  await ctx.replyWithHTML('<b>Огрунтовка фасада "Валиком" м² - 60 &#8381;</b>')
+  await ctx.replyWithHTML('<b>Окраска фасада м² - 100 &#8381;</b>')
+  await ctx.replyWithHTML('<b>Очистка кровли от снега м² - от 60 &#8381;</b>')
+  await ctx.replyWithHTML('<b>Установка внешнего блока кондиционера - 7000 &#8381;</b>')
+  await ctx.replyWithHTML('<b>Мойка окон м² - от 50  &#8381;</b>')
+  await ctx.replyWithHTML('<b>Ремонт межпанельных швов м² - от 800  &#8381;</b>')
+  await ctx.replyWithHTML('<b>Установка снегозадержателей пог.м - от 1000  &#8381;</b>')
+  await ctx.replyWithHTML('<b>Выезд альпиниста 6000  &#8381;</b>')
+  await ctx.replyWithHTML('<b>Монтаж банеров м² - от 1200 &#8381;</b>')
+  await ctx.replyWithHTML('<b>Монтаж строительных лесов(туры) м²  - от 90 &#8381;</b>')
+  await ctx.replyWithHTML('<b>Герметизация кровли (ремонт кровли)   - от 500 &#8381;</b>')
+  await ctx.replyWithHTML('<b>Монтаж водосточный системы   - от 1800  &#8381; м</b>')
+  await ctx.replyWithHTML('<b>Другие виды работ - по договоренности </b>')
+}catch(e){
+  console.error(e)
+}
+});
+
+bot.hears("Услуги", async (ctx) =>{  
+    try{
+      await ctx.replyWithHTML('<a>Фасадные работы - это сложный комплекс  мероприятий направленный восстановления, утепление, предание красивого внешнего вида, защитное свойство от внешних - вредных воздействий окружающий среды на фасаде вашего дома.</a>',
+      ctx.replyWithPhoto('http://on-high.ru/wp-content/themes/shabloner_901/files/ct_block_item_85605_898843_5_image_PJnTHAkO.jpg')),
+      await ctx.replyWithHTML('<a>Монтаж кондиционеров - установка кондиционера альпинистом выполняется в определенном порядке: монтируют наружные и внутренние блоки, прокладывают трубопроводы для хладагента, подводят электрокоммуникации и собирают автоматические предохранители выключателей.</a>',
+      ctx.replyWithPhoto('https://alpinisti.ru/wp-content/uploads/2021/07/1475486223_0_492d_30a0711b_xl.jpg')),
+      await ctx.replyWithHTML('<a>Клининговые работы - профессиональная мойка стеклянных поверхностей и керамогранитных фасадов (вентфасадов) высоток методом промышленного альпинизма выполняется с использованием специального инструментария и мыльного раствора.</a>',
+      ctx.replyWithPhoto('https://gor-m.ru/sites/default/files/moika-okon-na-vysote.jpg')),
+      await ctx.replyWithHTML('<a>Высотный монтаж - привлечение альпиниста для выполнения высотных монтажных работ, является более выгодным и целесообразным решением, чем монтаж строительных лесов или привлечение тяжелой строительной техники на объект. А зачастую бывает просто не возможно обойтись без привлечения промышленного альпинизма.</a>',
+      ctx.replyWithPhoto('https://prom-alp.biz/wp-content/uploads/230120209_227669-1-600x450.jpg')) 
+      }catch(e){
+          console.error(e)
+      }
+  });
+
+  bot.hears("Контакты", async (ctx) =>{  
+    try {
+      await ctx.replyWithContact('+79063207897', 'Андрей')
+      await ctx.replyWithContact('+79061128191', 'Артур')
+     } catch (e) {
+       console.error(e);
+     }
+  });
+
 bot.help((ctx) => ctx.reply(commBot.commands));
 bot.command("site", (ctx) => {
   ctx.replyWithHTML('<a href="http://on-high.ru/">Наш сайт</a>');
 });
-
+bot.command("coder", async (ctx) => {
+  try{
+    await ctx.replyWithContact('+79991625236', 'Саша')
+   } catch (e) {
+     console.error(e);
+   }
+});
 
 bot.command("menu", async (ctx) => {
   try {
