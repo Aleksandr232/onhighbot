@@ -1,15 +1,38 @@
 const { Telegraf, Markup, Composer } = require("telegraf");
 require("dotenv").config();
 const commBot = require("./const");
+const webPort = 'https://newportfolio-sooty-kappa.vercel.app/'
+const site = 'https://on-high.ru/'
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
-bot.start((ctx) =>
-  ctx.reply(
+bot.start(async(ctx) =>{
+  bot.on('text', async (ctx)=>{
+    
+ ctx.replyWithHTML('<b>Пора чистить крыши</b>');
+ await ctx.replyWithVideo({source:'snow.mp4'});
+ ctx.replyWithHTML('<b>Не нужно ждать, пока сам сойдет</b>');
+ ctx.replyWithHTML('<b>Выезд опытных альпинистов</b>');
+ ctx.replyWithHTML('<b>Свяжись</b>', ctx.replyWithContact('+79063207897', 'Андрей'),
+ ctx.replyWithContact('+79061128191', 'Артур'))
+    
+  })     
+ await ctx.reply(
     `Привет, ${
       ctx.message.from.first_name ? ctx.message.from.first_name : "друг"
     }, я помогу тебе с высотными работами`
   )
-);
+  try{
+    await ctx.reply('Используй в чате символ / и откроются доп.возможности', Markup.keyboard([
+      ['Услуги', 'Цены'],
+      ['Связаться'],
+      [Markup.button.webApp('Сайт', site )]
+    
+      
+    ]).oneTime().resize())
+    }catch(e){
+      console.log(e)
+    }
+  });
 bot.hears("Привет", (ctx) => ctx.reply("Привет, помогу с высотными работами"));
 bot.hears("Цены", async (ctx) =>{  
 try{
@@ -57,16 +80,30 @@ bot.hears("Услуги", async (ctx) =>{
      }
   });
 
+  bot.hears("Связаться", async (ctx) =>{  
+    try {
+      await ctx.replyWithContact('+79063207897', 'Андрей')
+      await ctx.replyWithContact('+79061128191', 'Артур')
+     } catch (e) {
+       console.error(e);
+     }
+  });
+
 bot.help((ctx) => ctx.reply(commBot.commands));
 bot.command("site", (ctx) => {
   ctx.replyWithHTML('<a href="http://on-high.ru/">Наш сайт</a>');
 });
 bot.command("coder", async (ctx) => {
-  try{
-    await ctx.replyWithContact('+79991625236', 'Саша')
-   } catch (e) {
-     console.error(e);
-   }
+  try {
+    await ctx.replyWithContact("+79991625236", "Саша");
+    await ctx.replyWithHTML('<b>Портфолио</b>', Markup.inlineKeyboard([
+      [
+        Markup.button.webApp("Личный сайт💻", webPort),
+      ],  
+    ]))
+  } catch (e) {
+    console.error(e);
+  }
 });
 
 bot.command("menu", async (ctx) => {
