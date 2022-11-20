@@ -10,10 +10,10 @@ bot.start(async(ctx) =>{
     
  ctx.replyWithHTML('<b>Пора чистить крыши</b>');
  await ctx.replyWithVideo({source:'snow.mp4'});
- ctx.replyWithHTML('<b>Не нужно ждать, пока сам сойдет</b>');
- ctx.replyWithHTML('<b>Выезд опытных альпинистов</b>');
- ctx.replyWithHTML('<b>Свяжись</b>', ctx.replyWithContact('+79063207897', 'Андрей'),
- ctx.replyWithContact('+79061128191', 'Артур'))
+ await ctx.replyWithHTML('<b>Не нужно ждать, пока сам сойдет</b>');
+ await ctx.replyWithHTML('<b>Выезд опытных альпинистов</b>');
+ ctx.replyWithHTML('<b>Свяжись!!!</b>', await ctx.replyWithContact('+79063207897', 'Андрей'),
+  await ctx.replyWithContact('+79061128191', 'Артур'))
     
   })     
  await ctx.reply(
