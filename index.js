@@ -2,6 +2,7 @@ const { Telegraf, Markup, Composer } = require("telegraf");
 require("dotenv").config();
 const commBot = require("./const");
 const webPort = 'https://newportfolio-sooty-kappa.vercel.app/'
+const webOnhige = 'https://web-onhige.vercel.app/'
 const site = 'https://on-high.ru/'
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -26,6 +27,7 @@ bot.start(async(ctx) =>{
       ['Услуги', 'Цены'],
       ['Связаться'],
       [Markup.button.webApp('Сайт', site )]
+      [Markup.button.webApp('Оставить заявку', webOnhige )]
     
       
     ]).oneTime().resize())
