@@ -42,7 +42,7 @@ bot.start(async(ctx) =>{
   try{
     await ctx.reply('Используй в чате символ / и откроются доп.возможности', Markup.keyboard([
       ['Услуги', 'Цены'],
-      ['Связаться'],
+      /* ['Связаться'], */
       [Markup.button.webApp('Сайт', site )],
       [Markup.button.webApp('Оставить заявку', web )]
     
