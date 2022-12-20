@@ -4,19 +4,36 @@ const commBot = require("./const");
 const webPort = 'https://newportfolio-sooty-kappa.vercel.app/'
 const web = 'https://web-onhige.vercel.app/'
 const site = 'https://on-high.ru/'
-
+const cron = require('node-cron')
+const axios = require('axios')
 const bot = new Telegraf(process.env.BOT_TOKEN);
+
+
+const TOKEN ='5784348887:AAEf498gjGd0gXuH6nfJC3KpjV_w1lWsot4';
+const CHAT_ID = '-1001803523687';
+const uri_api = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
 bot.start(async(ctx) =>{
-  bot.on('text', async (ctx)=>{
+  function users(){
+    let message =`<b>Кто зашел в бота НА ВЫСОТЕ</b>\n`;
+    message += `<b>бота запустил:</b> ${ctx.message.from.first_name} ${ctx.message.from.last_name} и  @${ctx.message.from.username}\n`;
+    axios.post(uri_api,{
+        chat_id: CHAT_ID,
+        parse_mode: 'html',
+        text: message 
+    })
     
- ctx.replyWithHTML('<b>Пора чистить крыши</b>');
- await ctx.replyWithVideo({source:'snow.mp4'});
- await ctx.replyWithHTML('<b>Не нужно ждать, пока сам сойдет</b>');
- await ctx.replyWithHTML('<b>Выезд опытных альпинистов</b>');
- ctx.replyWithHTML('<b>Свяжись!!!</b>', await ctx.replyWithContact('+79063207897', 'Андрей'),
-  await ctx.replyWithContact('+79061128191', 'Артур'))
-    
-  })     
+  }
+  
+    cron.schedule("0 0 10 * * *", async ()=>{
+        await ctx.replyWithHTML('<b>Пора чистить крыши</b>'),
+        await ctx.replyWithHTML('<b>Не нужно ждать, пока сам сойдет</b>'),
+        await  ctx.replyWithHTML('<b>Выезд опытных альпинистов</b>'),
+        await ctx.replyWithHTML('<b>Свяжись!!!</b>')
+    })
+ 
+ 
+    users()     
  await ctx.reply(
     `Привет, ${
       ctx.message.from.first_name ? ctx.message.from.first_name : "друг"
