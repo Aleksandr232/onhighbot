@@ -4,6 +4,7 @@ const commBot = require("./const");
 const webPort = 'https://newportfolio-sooty-kappa.vercel.app/'
 const web = 'https://web-onhige.vercel.app/'
 const site = 'https://on-high.ru/'
+const admin = 'https://webadmin-r6r2h3zlr-aleksandr232.vercel.app/'
 const cron = require('node-cron')
 const axios = require('axios')
 const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -12,6 +13,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 const TOKEN ='5784348887:AAEf498gjGd0gXuH6nfJC3KpjV_w1lWsot4';
 const CHAT_ID = '-1001803523687';
 const uri_api = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+const password = '123'
 
 bot.start(async(ctx) =>{
   function users(){
@@ -74,6 +76,18 @@ try{
   console.error(e)
 }
 });
+
+
+  
+  bot.hears(password, (ctx)=>{
+    ctx.replyWithHTML('зайти в панель', Markup.inlineKeyboard([
+      [
+        Markup.button.webApp("admin💻", admin),
+      ]
+    ]))
+  })
+
+
 
 bot.hears("Услуги", async (ctx) =>{  
     try{
