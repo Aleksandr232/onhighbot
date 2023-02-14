@@ -27,7 +27,7 @@ bot.start(async(ctx) =>{
     
   }
   
-    cron.schedule("0 0 10 * * *", async ()=>{
+    cron.schedule("0 0 10 Jan,Feb,Mar,Apr,May,June,July,Aug,Sept,Oct,Nov,Dec Sun", async ()=>{
         await ctx.replyWithHTML('<b>Пора чистить крыши</b>'),
         await ctx.replyWithHTML('<b>Не нужно ждать, пока сам сойдет</b>'),
         await  ctx.replyWithHTML('<b>Выезд опытных альпинистов</b>'),
